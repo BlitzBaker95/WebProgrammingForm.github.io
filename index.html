@@ -57,15 +57,17 @@
 </table>
   <br>
   <br>
- <input type="number" id="Quantity" name="Quantity" min="1" max="100">
-  <button onclick="CalculateTotal()">Calculate Total</button>
-  <p id="total"></p>
-  <script scr="script.js">
-    function CalculateTotal() {
-      var Quantity = document.getElementById('quantity').value;
-      var total = Quantity * 5;
-      document.getElementById('total').innerHTML = total;
-    }
+quantity<input type="text" id="quantity">
+  <br>
+  <br>
+  <button onclick="sum()">Calculate</button>
+
+  <script>
+  fuction calculate(){
+    var quantity=document.getElementById("quantity").value;
+    var total=quantity * 5; 
+    document.getElementById("total").innerHTML=total;
+  }
   </script>
 </form>
 </body>
