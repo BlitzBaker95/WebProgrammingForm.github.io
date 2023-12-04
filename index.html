@@ -63,11 +63,34 @@ quantity<input type="text" id="quantity">
   <button onclick="sum()">Calculate</button>
 
   <script>
-  fuction calculate(){
-    var quantity=document.getElementById("quantity").value;
-    var total=quantity * 5; 
-    document.getElementById("total").innerHTML=total;
-  }
+  fuction pricCalculate(){
+    var quantity = document.getElementById("quantity_order").value;
+var price = document.getElementById("price_fixed").value;
+var total = quantity * price;
+var discountPrice = 0
+var discountedTotal = total - (total * discountPrice);
+const taxRate = 0.085;
+var tax = total * taxRate;
+var totalPlusTax = total + tax;
+
+if (quantity > 9 || quantity < 20) {
+        discountPrice = .10;        
+        total = discountedTotal;
+    }           
+    else if (quantity > 19 || quantity < 30) {
+        discountPrice = .20;
+        total = discountedTotal;
+    }
+    else if (quantity > 29 || quantity < 40) {
+        discountPrice = .30;
+        total = discountedTotal;    
+    }
+    else if (quantity > 39 || quantity < 100) {
+        discountPrice = .40;
+        total = discountedTotal;    
+    }
+
+document.getElementById("order_total").value = "$" + totalPlusTax.toFixed(2);
   </script>
 </form>
 </body>
